@@ -6,6 +6,9 @@
     <%= submit_tag "Filter" %>
   <% end %>
 </div>
+<% if !params[:author].blank? %>
+  <% @posts = Post.where(author: params[:author]) %>
+<% end %>
 <% @posts.each do |post| %>
   <div>
     <h2><%= post.title %></h2>
